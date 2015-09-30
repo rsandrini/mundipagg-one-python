@@ -47,7 +47,7 @@ def billing_address(**kwargs):
     return address
 
 
-def boleto_tranasction_options(currency_iso, days_to_add_in_boleto_expiration_date=None):
+def boleto_transaction_options(currency_iso, days_to_add_in_boleto_expiration_date=None):
     options = {
         'DaysToAddInBoletoExpirationDate': days_to_add_in_boleto_expiration_date,
         'CurrencyIsoField': currency_iso
