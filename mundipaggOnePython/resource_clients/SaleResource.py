@@ -5,9 +5,7 @@ from uuid import UUID
 import requests
 
 from AbstractResource import AbstractResource
-from CreateSaleRequest import sale_options, create_sale_request
-from ManageSaleRequest import manage_sale_request
-from RetrySaleRequest import retry_sale_request
+from mundipaggOnePython.data_contracts import create_sale_request, sale_options, manage_sale_request, retry_sale_request
 
 
 class uuid_serialize(json.JSONEncoder):
@@ -24,8 +22,6 @@ class SaleResource(AbstractResource):
 
     def create_with_request(self, create_sale_request):
         request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json'}
-
-        print json.dumps(create_sale_request, cls=uuid_serialize)
 
         return requests.post('https://stagingv2.mundipaggone.com/Sale',
                              data=json.dumps(create_sale_request, cls=uuid_serialize), headers=request_header)
