@@ -23,6 +23,6 @@ setup(
 
         'Programming Language :: Python :: 2.7'
     ],
-    install_requires=['requests>=2.0.0', 'enum34>=1.0.0'],
+    install_requires=['requests>=2.0.0', 'enum34>=1.0.0', 'xmltodict>=0.9.2'],
     keywords=['mundipagg', 'rest', 'sdk', 'payments']
 )

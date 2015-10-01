@@ -1,16 +1,18 @@
 from abc import ABCMeta
 import json
 import uuid
+from mundipaggOnePython.ConfigurationUtility import ConfigurationUtility
 from mundipaggOnePython.enum_types import PlatformEnvironment
 
 
 class AbstractResource(object):
-
     __metaclass__ = ABCMeta
 
-    def __init__(self, merchant_key=None, environment=None, http_content_type=None, resource_name=None, host_uri=None):
+    def __init__(self, merchant_key=None, environment=None, http_content_type=None, resource_name=None, host_uri=None,
+                 configuration_utility=ConfigurationUtility()):
+        self.__configuration_utility = configuration_utility
         if merchant_key is None:
-            merchant_key = self.get_configuration_key('GatewayService.MerchantKey')
+            merchant_key = self.__configuration_utility.merchant_key()
 
         self.merchant_key = merchant_key
         self.plataform_environment = environment
@@ -24,8 +26,8 @@ class AbstractResource(object):
         self.resource_name = resource_name
 
     def get_service_uri(self, environment):
-        switch_uri = {PlatformEnvironment.production: self.get_configuration_string("GatewayService.ProductionHostUri"),
-                      PlatformEnvironment.sand_box: self.get_configuration_string("GatewayService.SandboxHostUri")}
+        switch_uri = {PlatformEnvironment.production: self.__configuration_utility.production_host_uri(),
+                      PlatformEnvironment.sandbox: self.__configuration_utility.sandbox_host_uri()}
 
         return switch_uri.get(environment)
 
@@ -37,16 +39,5 @@ class AbstractResource(object):
         configuration = config.get(configuration_name)
         if configuration:
             return configuration
-        else:
-            raise ValueError('Missing configuration: ' + configuration_name)
-
-    @staticmethod
-    def get_configuration_key(configuration_name):
-        with open('config.json') as config_file:
-            config = json.load(config_file)
-
-        configuration = config.get(configuration_name)
-        if configuration:
-            return uuid.UUID(configuration)
         else:
             raise ValueError('Missing configuration: ' + configuration_name)
