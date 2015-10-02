@@ -1,1 +1,2 @@
-__author__ = 'Newton'
+from TransactionReportParser import TransactionReportParser
+from TransactionReportClient import TransactionReport

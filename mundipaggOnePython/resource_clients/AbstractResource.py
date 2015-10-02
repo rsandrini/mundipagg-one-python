@@ -1,6 +1,5 @@
 from abc import ABCMeta
-import json
-import uuid
+
 from mundipaggOnePython.ConfigurationUtility import ConfigurationUtility
 from mundipaggOnePython.enum_types import PlatformEnvironment
 
@@ -31,13 +30,3 @@ class AbstractResource(object):
 
         return switch_uri.get(environment)
 
-    @staticmethod
-    def get_configuration_string(configuration_name):
-        with open('config.json') as config_file:
-            config = json.load(config_file)
-
-        configuration = config.get(configuration_name)
-        if configuration:
-            return configuration
-        else:
-            raise ValueError('Missing configuration: ' + configuration_name)

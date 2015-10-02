@@ -55,7 +55,7 @@ def boleto_transaction_options(currency_iso, days_to_add_in_boleto_expiration_da
     return options
 
 
-def creditcard_transaction(amount_in_cents, creditcard, creditcard_operation, **kwargs):
+def creditcard_transaction(amount_in_cents, creditcard, creditcard_operation='AuthAndCapture', **kwargs):
     transaction = {
         'CreditCard': creditcard,
         'Options': kwargs.get('options'),

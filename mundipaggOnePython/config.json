@@ -1,0 +1,7 @@
+[
+  {
+    "merchant_key": "00000000-0000-0000-0000-000000000000",
+    "production_host_uri": "",
+    "sandbox_host_uri": "https://stagingv2.mundipaggone.com/"
+  }
+]

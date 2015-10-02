@@ -7,7 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/mundipaggOnePython/data_contracts/Manage" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/mundipaggOnePython/data_contracts/Retry" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 2.7.10 (C:\Python27\python.exe)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7.10 virtualenv at C:\Users\Newton\Phantom" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

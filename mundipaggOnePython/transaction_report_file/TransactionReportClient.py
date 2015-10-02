@@ -1,6 +1,8 @@
 import urlparse
 from uuid import UUID
+
 import requests
+
 from mundipaggOnePython.ConfigurationUtility import ConfigurationUtility
 
 

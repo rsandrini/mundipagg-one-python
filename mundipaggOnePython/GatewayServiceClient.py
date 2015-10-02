@@ -27,3 +27,4 @@ class GatewayServiceClient(object):
             self.__credit_card = credit_card_resource
         else:
             self.__credit_card = None
+
