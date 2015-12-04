@@ -18,7 +18,7 @@ class TransactionReport(object):
 
     def download_report(self, file_date):
         request_header = {"MerchantKey": str(self.merchant_key)}
-        resource = "/TransactionReportFile/GetStream?fileDate=" + file_date.strftime("%Y%m%d")
+        resource = "/TransactionReportFile/GetStream?fileDate=" + file_date
         return requests.get(urlparse.urljoin(self.host_uri, resource), headers=request_header)
 
     def download_report_to_file(self, file_date, file_name):

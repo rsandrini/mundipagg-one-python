@@ -22,7 +22,8 @@ class SaleResource(AbstractResource):
         super(SaleResource, self).__init__(merchant_key, environment, http_content_type, "/Sale", host_uri)
 
     def create_with_request(self, create_sale_request):
-        request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json'}
+        request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json',
+                          'Accept': 'application/json'}
         return requests.post(urlparse.urljoin(self.host_uri, 'Sale'),
                              data=json.dumps(create_sale_request, cls=uuid_serialize), headers=request_header)
 
@@ -52,7 +53,8 @@ class SaleResource(AbstractResource):
         # Configura o action que será utilizado
         action_name = manage_operation.name
 
-        request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json'}
+        request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json',
+                          'Accept': 'application/json'}
 
         return requests.post(urlparse.urljoin(self.host_uri, self.resource_name, action_name),
                              data=json.dumps(manage_sale_request, cls=uuid_serialize), headers=request_header)
@@ -72,7 +74,8 @@ class SaleResource(AbstractResource):
                                                       manage_creditcard_transaction_collection)
 
     def retry_with_request(self, retry_sale_request):
-        request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json'}
+        request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json',
+                          'Accept': 'application/json'}
 
         return requests.post(urlparse.urljoin(self.host_uri, self.resource_name, '/Retry'),
                              data=json.dumps(retry_sale_request, cls=uuid_serialize), headers=request_header)
@@ -109,8 +112,8 @@ class SaleResource(AbstractResource):
         return self.__query_implementation('BoletoTransactionReference', boleto_transaction_reference)
 
     def __query_implementation(self, identifier_name, value):
-        action_name = '/Query/{0}={1}'.format(identifier_name, value)
+        action_name = 'Sale/Query/{0}={1}'.format(identifier_name, value)
 
-        request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json'}
-
-        return requests.get(urlparse.urljoin(self.host_uri, self.resource_name, action_name), headers=request_header)
+        request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json',
+                          'Accept': 'application/json'}
+        return requests.get(urlparse.urljoin(self.host_uri, action_name), headers=request_header)
