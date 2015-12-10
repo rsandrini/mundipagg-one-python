@@ -1,6 +1,6 @@
 from abc import ABCMeta
 
-from mundipaggOnePython.ConfigurationUtility import ConfigurationUtility
+from mundipaggOnePython import ConfigurationUtility
 from enum_types import PlatformEnvironment
 
 
