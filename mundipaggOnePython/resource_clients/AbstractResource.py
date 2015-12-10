@@ -1,7 +1,7 @@
 from abc import ABCMeta
 
 from mundipaggOnePython.ConfigurationUtility import ConfigurationUtility
-from mundipaggOnePython.enum_types import PlatformEnvironment
+from enum_types import PlatformEnvironment
 
 
 class AbstractResource(object):
