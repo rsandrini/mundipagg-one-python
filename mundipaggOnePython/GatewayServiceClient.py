@@ -1,4 +1,4 @@
-from mundipaggOnePython.resource_clients import SaleResource, CreditCardResource
+from resource_clients import SaleResource, CreditCardResource
 
 
 class GatewayServiceClient(object):
