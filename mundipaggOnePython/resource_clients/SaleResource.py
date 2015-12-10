@@ -4,9 +4,9 @@ import urlparse
 from uuid import UUID
 
 import requests
+from data_contracts import create_sale_request, sale_options, manage_sale_request, retry_sale_request
 
 from AbstractResource import AbstractResource
-from mundipaggOnePython.data_contracts import create_sale_request, sale_options, manage_sale_request, retry_sale_request
 
 
 class uuid_serialize(json.JSONEncoder):
