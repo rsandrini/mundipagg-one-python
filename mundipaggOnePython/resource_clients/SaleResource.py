@@ -51,12 +51,12 @@ class SaleResource(AbstractResource):
 
     def manage_with_request(self, manage_operation, manage_sale_request):
         # Configura o action que será utilizado
-        action_name = manage_operation.name
+        action_name = self.resource_name + '/' + manage_operation.name
 
         request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json',
                           'Accept': 'application/json'}
 
-        return requests.post(urlparse.urljoin(self.host_uri, self.resource_name, action_name),
+        return requests.post(urlparse.urljoin(self.host_uri, action_name),
                              data=json.dumps(manage_sale_request, cls=uuid_serialize), headers=request_header)
 
     def manage_with_order_key(self, manage_operation, order_key):
@@ -76,8 +76,8 @@ class SaleResource(AbstractResource):
     def retry_with_request(self, retry_sale_request):
         request_header = {"MerchantKey": str(self.merchant_key), 'Content-Type': 'application/json',
                           'Accept': 'application/json'}
-
-        return requests.post(urlparse.urljoin(self.host_uri, self.resource_name, '/Retry'),
+        action_name = self.resource_name + '/Retry'
+        return requests.post(urlparse.urljoin(self.host_uri, action_name),
                              data=json.dumps(retry_sale_request, cls=uuid_serialize), headers=request_header)
 
     def retry_with_order_key(self, order_key):
