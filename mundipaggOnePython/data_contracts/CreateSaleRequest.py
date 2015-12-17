@@ -70,15 +70,22 @@ def creditcard_transaction(amount_in_cents, creditcard, creditcard_operation='Au
 
 
 def creditcard(creditcard_number, creditcard_brand, exp_month, exp_year, holder_name, security_code,
-               billing_address=None, instant_buy_key=None):
+               billing_address=None):
     card = {
-        'InstantBuyKey': instant_buy_key or UUID("00000000-0000-0000-0000-000000000000"),
         'CreditCardNumber': creditcard_number,
         'HolderName': holder_name,
         'SecurityCode': security_code,
         'ExpMonth': exp_month,
         'ExpYear': exp_year,
         'CreditCardBrand': creditcard_brand,
+        'BillingAddress': billing_address
+    }
+    return card
+	
+	
+def creditcard_instant_buy(instant_buy_key, billing_address=None):
+    card = {
+        'InstantBuyKey': instant_buy_key or UUID("00000000-0000-0000-0000-000000000000"),
         'BillingAddress': billing_address
     }
     return card
