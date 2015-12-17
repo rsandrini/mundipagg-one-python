@@ -13,7 +13,7 @@ class CreditCardResource(AbstractResource):
             identifier_name = '/' + identifier_name
 
         action_name = '/{0}{1}'.format(str(key), identifier_name)
-        request_headers = {"merchantKey": str(self.merchant_key)}
+        request_headers = {"merchantKey": str(self.merchant_key), 'Content-Type': 'application/json', 'Accept': 'application/json'}
 
         return requests.get(self.host_uri + self.resource_name + action_name, headers=request_headers)
 
