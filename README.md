@@ -1,6 +1,6 @@
 # mundipagg-one-python
 
-### Instaling with pip
+### Installing with pip
 `pip install mundipagg_one_python`
 
 ### Required Packages
