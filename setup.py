@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'mundipaggOnePython')
 
 setup(
     name='mundipagg_one_python',
-    version='1.0.0',
+    version='1.0.1',
     package_dir={'mundipaggOnePython': 'mundipaggOnePython', 'data_contracts': 'mundipaggOnePython/data_contracts', 'enum_types': 'mundipaggOnePython/enum_types', 'resource_clients': 'mundipaggOnePython/resource_clients', 'transaction_report_file': 'mundipaggOnePython/transaction_report_file'},
     packages=['mundipaggOnePython', 'data_contracts', 'enum_types', 'resource_clients', 'transaction_report_file'],
     url='https://github.com/mundipagg/mundipagg-one-python',
