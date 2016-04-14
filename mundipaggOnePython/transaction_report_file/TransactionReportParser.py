@@ -20,7 +20,6 @@ class TransactionReportParser(object):
 
     @staticmethod
     def __parser_header(row, report):
-        print row
         if len(row) != 4:
             raise ValueError('The expected parameter count for Header parser is 4.', len(row))
         header = {'transaction_processed_date': datetime.strptime(row[1], '%Y%m%d'),
