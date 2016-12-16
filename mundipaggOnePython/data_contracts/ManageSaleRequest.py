@@ -16,3 +16,4 @@ def manage_creditcard_transaction(**kwargs):
         'TransactionReference': kwargs.get('transaction_reference'),
         'AmountInCents': kwargs.get('amount_in_cents') or 0
     }
+    return transaction
