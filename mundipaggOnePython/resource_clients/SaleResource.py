@@ -6,7 +6,7 @@ from uuid import UUID
 import requests
 from data_contracts import create_sale_request, sale_options, manage_sale_request, retry_sale_request
 
-from AbstractResource import AbstractResource
+from .AbstractResource import AbstractResource
 
 
 class uuid_serialize(json.JSONEncoder):

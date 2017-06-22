@@ -1,6 +1,6 @@
 import requests
 import json
-from AbstractResource import AbstractResource
+from .AbstractResource import AbstractResource
 from uuid import UUID
 from data_contracts import buyer
 
